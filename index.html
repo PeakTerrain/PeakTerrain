@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PeakTerrain | Terrain & Topography Puzzles</title>
-  <meta name="description" content="PeakTerrain creates terrain and topography puzzles plus customizable 3D-printed phone stands inspired by real landscapes." />
+  <title>PeakTerrain | Products</title>
+  <meta name="description" content="Browse PeakTerrain products including the Monterrey puzzle and terrain phone stand." />
   <style>
     :root {
       --bg: #f5f7f4;
@@ -18,7 +18,6 @@
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -32,7 +31,7 @@
     header {
       background: radial-gradient(circle at top right, #5d8f74, var(--accent-dark));
       color: #fff;
-      padding: 1rem 0 4rem;
+      padding: 1rem 0 3rem;
     }
 
     .container {
@@ -61,52 +60,23 @@
       margin-left: 1rem;
     }
 
-    .hero {
-      margin-top: 3rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      align-items: center;
+    .page-intro {
+      margin-top: 2.5rem;
     }
 
-    .hero h1 {
+    .page-intro h1 {
       margin: 0 0 0.5rem;
-      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-size: clamp(2rem, 4vw, 3rem);
       line-height: 1.15;
     }
 
-    .hero p {
-      max-width: 560px;
-      margin-bottom: 1.5rem;
+    .page-intro p {
+      max-width: 720px;
       color: #e5f2eb;
+      margin: 0;
     }
-
-    .btn {
-      display: inline-block;
-      background: #fff;
-      color: var(--accent-dark);
-      text-decoration: none;
-      font-weight: 700;
-      padding: 0.8rem 1.25rem;
-      border-radius: 8px;
-      margin-right: 0.75rem;
-      transition: transform 0.2s ease;
-    }
-
-    .btn.secondary {
-      background: transparent;
-      border: 2px solid #dff0e7;
-      color: #f2fff7;
-    }
-
-    .btn:hover { transform: translateY(-2px); }
 
     section { padding: 3.5rem 0; }
-
-    h2 {
-      margin-top: 0;
-      font-size: clamp(1.5rem, 2.6vw, 2.2rem);
-    }
 
     .intro {
       text-align: center;
@@ -115,10 +85,12 @@
       color: var(--muted);
     }
 
-    .grid {
+    .product-detail {
       display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 1.25rem;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-bottom: 1.5rem;
+      align-items: start;
     }
 
     .card {
@@ -129,11 +101,9 @@
       box-shadow: var(--shadow);
     }
 
-    .card h3 { margin: 0.4rem 0 0.4rem; }
-
-    .card ul {
-      margin: 0.5rem 0 0.75rem 1.2rem;
-      padding: 0;
+    .card h2,
+    .card h3 {
+      margin-top: 0;
     }
 
     .feature-media {
@@ -147,87 +117,26 @@
 
     .feature-media img {
       width: 100%;
-      height: 100%;
-      min-height: 290px;
+      display: block;
+      min-height: 320px;
       object-fit: cover;
-      display: block;
-      filter: contrast(1.04) saturate(1.02) brightness(1.02);
     }
 
-    .products {
-      background: #f0f5f2;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+    .tag-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+      margin-bottom: 1rem;
     }
 
-    .highlight {
-      border-left: 5px solid var(--accent);
-      padding-left: 1rem;
-      color: var(--muted);
-    }
-
-    .steps {
-      counter-reset: step;
-      list-style: none;
-      padding: 0;
-      margin: 1rem 0 0;
-      display: grid;
-      gap: 1rem;
-    }
-
-    .steps li {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 0.9rem 1rem 0.9rem 2.8rem;
-      position: relative;
-    }
-
-    .steps li::before {
-      counter-increment: step;
-      content: counter(step);
-      position: absolute;
-      left: 0.9rem;
-      top: 0.8rem;
-      width: 1.3rem;
-      height: 1.3rem;
-      border-radius: 50%;
-      background: var(--accent);
-      color: #fff;
+    .tag {
+      background: #e8f1eb;
+      color: var(--accent-dark);
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
       font-weight: 700;
-      display: grid;
-      place-items: center;
-      font-size: 0.8rem;
-    }
-
-    .product-showcase {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 1.25rem;
-      align-items: start;
-    }
-
-    .viewer-shell {
-      padding: 0;
-      overflow: hidden;
-    }
-
-    .viewer-header {
-      padding: 1rem 1rem 0;
-    }
-
-    .product-photo {
-      padding: 1rem;
-      padding-top: 0.25rem;
-    }
-
-    .product-photo img {
-      width: 100%;
-      display: block;
-      border-radius: 12px;
-      background: #fff;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
     }
 
     .spec-list {
@@ -244,60 +153,15 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .spec-item:last-child { border-bottom: none; }
-
-    .tag-row {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-top: 0.75rem;
+    .spec-item:last-child {
+      border-bottom: none;
     }
 
-    .tag {
-      background: #e8f1eb;
-      color: var(--accent-dark);
-      padding: 0.35rem 0.65rem;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      font-weight: 700;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
+    .highlight {
+      border-left: 5px solid var(--accent);
+      padding-left: 1rem;
+      color: var(--muted);
       margin-top: 1rem;
-    }
-
-    .cta {
-      background: linear-gradient(135deg, #2d6148, #3f7e5f);
-      color: #fff;
-      border-radius: 16px;
-      padding: 2rem;
-      display: grid;
-      gap: 1rem;
-      align-items: center;
-      grid-template-columns: 1.4fr 1fr;
-    }
-
-    .cta form {
-      display: grid;
-      gap: 0.7rem;
-    }
-
-    input, select, textarea, button {
-      font: inherit;
-      border-radius: 8px;
-      border: 1px solid #c6d8cd;
-      padding: 0.65rem 0.75rem;
-    }
-
-    button {
-      background: #fff;
-      color: var(--accent-dark);
-      font-weight: 700;
-      cursor: pointer;
-      border: none;
     }
 
     footer {
@@ -308,202 +172,98 @@
     }
 
     @media (max-width: 900px) {
-      .cta,
-      .product-showcase,
-      .gallery-grid {
+      .product-detail {
         grid-template-columns: 1fr;
-      }
-
-      .product-photo img {
-        min-height: 0;
       }
     }
   </style>
-  </head>
+</head>
 <body>
   <header>
     <div class="container">
       <nav class="nav">
         <div class="logo">PeakTerrain</div>
         <div>
-          <a href="#about">About</a>
-          <a href="#products">Products</a>
-          <a href="#featured">Featured</a>
-          <a href="#phone-stand">Phone Stand</a>
-          <a href="#contact">Contact</a>
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
         </div>
       </nav>
 
-      <div class="hero">
-        <div>
-          <h1>Elevate your desk with landscapes you can hold.</h1>
-          <p>
-            PeakTerrain creates premium terrain puzzles and 3D-printed phone stands based on real topography.
-            Explore the form, rotate the model, and shop the exact product right from the page.
-          </p>
-          <a class="btn" href="#phone-stand">Explore the Stand</a>
-          <a class="btn secondary" href="#featured">See Featured Print</a>
-        </div>
-        <div class="card" aria-hidden="true">
-          <h3>Newest Product Drop</h3>
-          <p><strong>Terrain Phone Stand:</strong> a stable desktop stand with a <strong>1.3 cm device gap</strong> for everyday charging and viewing.</p>
-          <p><strong>Interactive 3D viewer included</strong> so customers can inspect it from every angle.</p>
-        </div>
+      <div class="page-intro">
+        <h1>Products</h1>
+        <p>
+          Browse the current PeakTerrain product lineup. Both product sections use the same layout so the details feel consistent and easier to compare.
+        </p>
       </div>
     </div>
   </header>
 
-  <main>
-    <section id="about" class="container">
-      <h2>About PeakTerrain</h2>
-      <p class="intro">
-        We blend craftsmanship and cartography. Every puzzle and stand starts with accurate elevation data,
-        then gets transformed into tactile products that celebrate the shape of the Earth.
-      </p>
-      <div class="grid">
-        <article class="card">
-          <h3>Precision Mapping</h3>
-          <p>Contours and ridgelines are derived from real topographic models for true-to-region detail.</p>
-        </article>
-        <article class="card">
-          <h3>3D Printed Utility</h3>
-          <p>Our phone stands are designed to look sculptural while still supporting daily use on a desk or nightstand.</p>
-        </article>
-        <article class="card">
-          <h3>Gift-Ready</h3>
-          <p>Perfect for hikers, geologists, teachers, travelers, and anyone who loves geography.</p>
-        </article>
-      </div>
-    </section>
+  <main class="container">
+    <section>
+      <p class="intro">Each product below follows the same product detail structure: image, short description, tags, and a matching specification block.</p>
 
-    <section id="products" class="products">
-      <div class="container">
-        <h2>Product Sections</h2>
-        <p class="intro">Choose from puzzles and phone stands inspired by terrain, elevation, and place.</p>
-        <div class="grid">
-          <article class="card">
-            <h3>Terrain Jigsaw Puzzles</h3>
-            <p>Raised-relief puzzle lines featuring mountain ranges, deserts, and coastlines.</p>
-            <p class="highlight">Ideal for gifts, display pieces, and map lovers who want something tactile.</p>
-          </article>
-          <article class="card">
-            <h3>Topography Puzzles</h3>
-            <p>High-contrast contour products focused on elevation intervals and landscape form.</p>
-            <p class="highlight">Clean, premium display style with custom city labeling options.</p>
-          </article>
-          <article class="card">
-            <h3>Solid Phone Stands</h3>
-            <p>One-piece stands built for stability with embedded topographic detail and a sculptural profile.</p>
-            <p class="highlight">Designed for daily use and product photography that feels premium.</p>
-          </article>
-          <article class="card">
-            <h3>Custom Location Products</h3>
-            <p>Turn a favorite city, mountain, or coordinate into a custom stand or puzzle.</p>
-            <p class="highlight">Great for hometown gifts, anniversaries, and travel memories.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="featured" class="container">
-      <h2>Featured Print: Monterrey, Mexico</h2>
-      <p class="intro">
-        A clean two-tone terrain puzzle of Monterrey made for display, gifting, and map lovers.
-      </p>
-      <div class="gallery-grid">
+      <div id="monterrey" class="product-detail">
         <article class="card">
           <figure class="feature-media">
-            <img src="assets/monterrey-polished-white-bg.png" alt="Clean studio image of the Monterrey, Mexico topography puzzle on a white background" />
+            <img src="assets/monterrey-polished-white-bg.png" alt="Monterrey, Mexico terrain puzzle on a white background" />
           </figure>
         </article>
+
         <article class="card">
-          <h3>Monterrey Edition Details</h3>
-          <ul>
-            <li>Size: 14 x 18 cm</li>
-            <li>9 x 7 puzzle piece layout</li>
-            <li>Includes a display stand</li>
-            <li>Raised topographic relief with labeled city and coordinates</li>
-          </ul>
-          <p class="highlight">Store this image as <code>assets/monterrey-polished-white-bg.png</code> so the featured product section renders correctly.</p>
+          <h2>Monterrey, Mexico Puzzle</h2>
+          <p>
+            A clean two-tone terrain puzzle designed for display and gifting, featuring raised topographic relief and labeled location details.
+          </p>
+
+          <div class="tag-row">
+            <span class="tag">Terrain Puzzle</span>
+            <span class="tag">14 x 18 cm</span>
+            <span class="tag">9 x 7 Layout</span>
+            <span class="tag">Includes Stand</span>
+          </div>
+
+          <div class="spec-list">
+            <div class="spec-item"><strong>Product</strong><span>Monterrey, Mexico Puzzle</span></div>
+            <div class="spec-item"><strong>Size</strong><span>14 x 18 cm</span></div>
+            <div class="spec-item"><strong>Puzzle Layout</strong><span>9 x 7 pieces</span></div>
+            <div class="spec-item"><strong>Includes</strong><span>Display stand</span></div>
+            <div class="spec-item"><strong>Style</strong><span>Raised terrain relief</span></div>
+          </div>
+
+          <p class="highlight">Use <code>assets/monterrey-polished-white-bg.png</code> for this product image.</p>
         </article>
       </div>
-    </section>
 
-    <section id="phone-stand" class="products">
-      <div class="container">
-        <h2>Phone Stand Product Details</h2>
-        <p class="intro">
-          Instead of a 3D viewer, this section uses a clean product photo to show the shape, terrain detail, and slot spacing of the stand.
-        </p>
+      <div id="phone-stand" class="product-detail">
+        <article class="card">
+          <figure class="feature-media">
+            <img src="assets/phone-stand-data-photo.png" alt="Terrain phone stand product photo on a white background" />
+          </figure>
+        </article>
 
-        <div class="product-showcase">
-          <article class="card viewer-shell">
-            <div class="viewer-header">
-              <h3>Product Photo</h3>
-              <p>Clean white-background image showing the stand shape and terrain surface clearly.</p>
-            </div>
-            <div class="product-photo">
-              <img src="assets/phone-stand-data-photo.png" alt="Phone stand product photo on a white background" />
-            </div>
-          </article>
+        <article class="card">
+          <h2>Terrain Phone Stand</h2>
+          <p>
+            A clean white-background product image showing the terrain surface, sculpted shape, and polished presentation of the phone stand.
+          </p>
 
-          <article class="card">
-            <h3>Product Details</h3>
-            <p>
-              This PeakTerrain phone stand is designed as a clean desktop display piece with terrain-inspired form.
-              The product image highlights the shape, surface detail, and overall presentation without needing an interactive model.
-            </p>
+          <div class="tag-row">
+            <span class="tag">Phone Stand</span>
+            <span class="tag">Studio Photo</span>
+            <span class="tag">Desk Display</span>
+            <span class="tag">Topo Inspired</span>
+          </div>
 
-            <div class="tag-row">
-              <span class="tag">Photo Based</span>
-              <span class="tag">Clean Background</span>
-              <span class="tag">Desk Display</span>
-              <span class="tag">Topo Inspired</span>
-            </div>
+          <div class="spec-list">
+            <div class="spec-item"><strong>Product</strong><span>Terrain Phone Stand</span></div>
+            <div class="spec-item"><strong>Presentation</strong><span>White-background product photo</span></div>
+            <div class="spec-item"><strong>Use Case</strong><span>Storefront and product page display</span></div>
+            <div class="spec-item"><strong>Build Style</strong><span>3D printed terrain form</span></div>
+            <div class="spec-item"><strong>Customization</strong><span>Location and label options</span></div>
+          </div>
 
-            <div class="spec-list">
-              <div class="spec-item"><strong>Product</strong><span>Terrain Phone Stand</span></div>
-              <div class="spec-item"><strong>Presentation</strong><span>Studio-style product image</span></div>
-              <div class="spec-item"><strong>Use Case</strong><span>Storefront listing, product detail page, promo graphics</span></div>
-              <div class="spec-item"><strong>Build Style</strong><span>3D printed terrain surface</span></div>
-              <div class="spec-item"><strong>Customization</strong><span>Location, terrain style, and labeling options</span></div>
-            </div>
-
-            <p class="highlight">
-              Save your polished stand image as <code>assets/phone-stand-data-photo.png</code> so this section displays the updated product photo.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="custom" class="container">
-      <h2>How Custom Orders Work</h2>
-      <ol class="steps">
-        <li>Pick a location, region, or coordinates for the terrain design.</li>
-        <li>Approve your model preview, engraved text, and color style.</li>
-        <li>We print, finish, package, and ship the final product.</li>
-      </ol>
-    </section>
-
-    <section id="contact" class="container">
-      <div class="cta">
-        <div>
-          <h2>Get launch offers from PeakTerrain</h2>
-          <p>Sign up for restock alerts, limited map drops, and bundle discounts.</p>
-        </div>
-        <form>
-          <input type="text" name="name" placeholder="Your name" required />
-          <input type="email" name="email" placeholder="Your email" required />
-          <select name="interest" required>
-            <option value="">I'm interested in...</option>
-            <option>Terrain Puzzles</option>
-            <option>Topography Puzzles</option>
-            <option>Solid Phone Stands</option>
-            <option>Custom Phone Stands</option>
-          </select>
-          <button type="submit">Join the List</button>
-        </form>
+          <p class="highlight">Use <code>assets/phone-stand-data-photo.png</code> for this product image.</p>
+        </article>
       </div>
     </section>
   </main>
@@ -513,5 +273,4 @@
   </footer>
 </body>
 </html>
-</strong><span>One-piece 3D print</span></div>
-            
+
