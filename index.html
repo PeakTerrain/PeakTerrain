@@ -216,11 +216,18 @@
       padding: 1rem 1rem 0;
     }
 
-    model-viewer {
+    .product-photo {
+      padding: 1rem;
+      padding-top: 0.25rem;
+    }
+
+    .product-photo img {
       width: 100%;
-      height: 520px;
-      background: radial-gradient(circle at center, #fbfcfb, #edf2ee);
-      border-radius: 0 0 14px 14px;
+      display: block;
+      border-radius: 12px;
+      background: #fff;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
     }
 
     .spec-list {
@@ -307,13 +314,12 @@
         grid-template-columns: 1fr;
       }
 
-      model-viewer {
-        height: 380px;
+      .product-photo img {
+        min-height: 0;
       }
     }
   </style>
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-</head>
+  </head>
 <body>
   <header>
     <div class="container">
@@ -402,7 +408,7 @@
     <section id="featured" class="container">
       <h2>Featured Print: Monterrey, Mexico</h2>
       <p class="intro">
-        This polished product image gives the Monterrey terrain puzzle a cleaner storefront look with a bright white background.
+        A clean two-tone terrain puzzle of Monterrey made for display, gifting, and map lovers.
       </p>
       <div class="gallery-grid">
         <article class="card">
@@ -413,66 +419,58 @@
         <article class="card">
           <h3>Monterrey Edition Details</h3>
           <ul>
-            <li>Raised topographic relief across the puzzle surface</li>
-            <li>Labeled city name and precise coordinates</li>
-            <li>Two-tone print for strong contrast</li>
-            <li>Clean framing for shelf, desk, or gift display</li>
+            <li>Size: 14 x 18 cm</li>
+            <li>9 x 7 puzzle piece layout</li>
+            <li>Includes a display stand</li>
+            <li>Raised topographic relief with labeled city and coordinates</li>
           </ul>
-          <p class="highlight">Store your polished image as <code>assets/monterrey-polished-white-bg.png</code> so this product section renders correctly.</p>
+          <p class="highlight">Store this image as <code>assets/monterrey-polished-white-bg.png</code> so the featured product section renders correctly.</p>
         </article>
       </div>
     </section>
 
     <section id="phone-stand" class="products">
       <div class="container">
-        <h2>Interactive Product: Terrain Phone Stand</h2>
+        <h2>Phone Stand Product Details</h2>
         <p class="intro">
-          Add your exported 3D model and let shoppers rotate, zoom, and inspect the stand before buying.
+          Instead of a 3D viewer, this section uses a clean product photo to show the shape, terrain detail, and slot spacing of the stand.
         </p>
 
         <div class="product-showcase">
           <article class="card viewer-shell">
             <div class="viewer-header">
-              <h3>360° Product Viewer</h3>
-              <p>Drag to rotate, scroll to zoom, and inspect the landscape contours built into the stand.</p>
+              <h3>Product Photo</h3>
+              <p>Clean white-background image showing the stand shape and terrain surface clearly.</p>
             </div>
-            <model-viewer
-              src="assets/terrain-phone-stand.glb"
-              poster="assets/monterrey-polished-white-bg.png"
-              alt="Interactive 3D model of a PeakTerrain phone stand"
-              camera-controls
-              touch-action="pan-y"
-              auto-rotate
-              shadow-intensity="1"
-              exposure="1.05"
-              ar>
-            </model-viewer>
+            <div class="product-photo">
+              <img src="assets/phone-stand-data-photo.png" alt="Phone stand product photo on a white background" />
+            </div>
           </article>
 
           <article class="card">
             <h3>Product Details</h3>
             <p>
-              This PeakTerrain phone stand is built as a practical desktop display piece with terrain-inspired shaping.
-              The front slot is sized with a <strong>1.3 centimeter gap</strong> to hold a phone securely while keeping the silhouette clean.
+              This PeakTerrain phone stand is designed as a clean desktop display piece with terrain-inspired form.
+              The product image highlights the shape, surface detail, and overall presentation without needing an interactive model.
             </p>
 
             <div class="tag-row">
-              <span class="tag">3D Printed</span>
-              <span class="tag">1.3 cm Gap</span>
+              <span class="tag">Photo Based</span>
+              <span class="tag">Clean Background</span>
               <span class="tag">Desk Display</span>
               <span class="tag">Topo Inspired</span>
             </div>
 
             <div class="spec-list">
               <div class="spec-item"><strong>Product</strong><span>Terrain Phone Stand</span></div>
-              <div class="spec-item"><strong>Fit</strong><span>Phones with 1.3 cm slot clearance</span></div>
-              <div class="spec-item"><strong>Use Case</strong><span>Video viewing, charging, desk display</span></div>
-              <div class="spec-item"><strong>Build Style</strong><span>One-piece 3D print</span></div>
-              <div class="spec-item"><strong>Customization</strong><span>Location text, terrain, and color options</span></div>
+              <div class="spec-item"><strong>Presentation</strong><span>Studio-style product image</span></div>
+              <div class="spec-item"><strong>Use Case</strong><span>Storefront listing, product detail page, promo graphics</span></div>
+              <div class="spec-item"><strong>Build Style</strong><span>3D printed terrain surface</span></div>
+              <div class="spec-item"><strong>Customization</strong><span>Location, terrain style, and labeling options</span></div>
             </div>
 
             <p class="highlight">
-              Export your STL as a <code>.glb</code> file and save it to <code>assets/terrain-phone-stand.glb</code>. STL files do not render directly in most web product viewers, but GLB works smoothly with <code>&lt;model-viewer&gt;</code>.
+              Save your polished stand image as <code>assets/phone-stand-data-photo.png</code> so this section displays the updated product photo.
             </p>
           </article>
         </div>
@@ -515,4 +513,5 @@
   </footer>
 </body>
 </html>
-products designed for everyday discovery.
+</strong><span>One-piece 3D print</span></div>
+            
