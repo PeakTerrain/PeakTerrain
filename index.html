@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="PeakTerrain creates terrain puzzles and topography-inspired products for display, gifts, and everyday use." />
-  <title>PeakTerrain | Home</title>
+  <meta name="description" content="Shop PeakTerrain terrain puzzles, desk pieces, and topography-inspired products." />
+  <title>PeakTerrain | Products</title>
 
   <style>
     :root {
@@ -23,6 +23,9 @@
       --radius-sm: 10px;
       --max-width: 1120px;
       --transition: 180ms ease;
+      --success-bg: #e8f6ee;
+      --success-border: #b7dfc6;
+      --success-text: #1f5a3f;
     }
 
     * {
@@ -48,16 +51,12 @@
     }
 
     a,
-    button,
-    input,
-    select {
+    button {
       transition: background-color var(--transition), color var(--transition), border-color var(--transition), transform var(--transition), box-shadow var(--transition);
     }
 
     a:focus-visible,
-    button:focus-visible,
-    input:focus-visible,
-    select:focus-visible {
+    button:focus-visible {
       outline: 3px solid rgba(223, 240, 231, 0.95);
       outline-offset: 3px;
     }
@@ -87,7 +86,7 @@
     header {
       background: radial-gradient(circle at top right, #5d8f74, var(--accent-dark));
       color: #ffffff;
-      padding: 1rem 0 4rem;
+      padding: 1rem 0 3.5rem;
     }
 
     .nav {
@@ -127,88 +126,31 @@
     }
 
     .hero {
-      margin-top: 3rem;
+      margin-top: 2.5rem;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      align-items: center;
+      gap: 1.5rem;
     }
 
     .hero h1 {
       margin: 0 0 0.75rem;
-      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-size: clamp(2rem, 4vw, 3rem);
       line-height: 1.1;
       letter-spacing: -0.02em;
     }
 
     .hero p {
-      max-width: 560px;
-      margin: 0 0 1.5rem;
+      max-width: 720px;
+      margin: 0;
       color: #e5f2eb;
     }
 
-    .hero-card {
+    .notice {
+      margin-top: 1.5rem;
       background: rgba(255, 255, 255, 0.12);
       border: 1px solid rgba(255, 255, 255, 0.18);
       border-radius: var(--radius);
-      padding: 1.2rem;
-      backdrop-filter: blur(6px);
-      box-shadow: var(--shadow);
-    }
-
-    .hero-card h2,
-    .hero-card h3 {
-      margin-top: 0;
-      color: #ffffff;
-    }
-
-    .hero-card p {
-      color: #f2fff7;
-      margin-bottom: 0.8rem;
-    }
-
-    .button-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 0.8rem 1.25rem;
-      border-radius: var(--radius-sm);
-      text-decoration: none;
-      font-weight: 700;
-      border: 2px solid transparent;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-primary {
-      background: #ffffff;
-      color: var(--accent-dark);
-    }
-
-    .btn-primary:hover,
-    .btn-primary:focus-visible {
-      background: #f3faf6;
-    }
-
-    .btn-secondary {
-      background: transparent;
-      border-color: var(--accent-light);
-      color: #f2fff7;
-    }
-
-    .btn-secondary:hover,
-    .btn-secondary:focus-visible {
-      background: rgba(255, 255, 255, 0.1);
+      padding: 1rem 1.1rem;
+      color: #f4fff9;
     }
 
     main {
@@ -225,140 +167,184 @@
       line-height: 1.2;
     }
 
-    .section-heading {
-      margin-bottom: 0.9rem;
-    }
-
     .intro {
-      text-align: center;
       max-width: 760px;
-      margin: 0 auto 2rem;
       color: var(--muted);
+      margin: 0 0 2rem;
     }
 
-    .grid {
+    .products-grid {
       display: grid;
-      gap: 1.25rem;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.4rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 1.2rem;
       box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
       height: 100%;
     }
 
-    .card h3 {
-      margin: 0.4rem 0 0.4rem;
-      line-height: 1.25;
-    }
-
-    .card p:last-child {
-      margin-bottom: 0;
-    }
-
-    .feature-media {
-      margin: 0 0 1rem;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: #ffffff;
-      box-shadow: var(--shadow);
+    .product-media {
       aspect-ratio: 4 / 3;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
     }
 
-    .feature-media img {
+    .product-media img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       background: #f7faf8;
     }
 
-    .products-preview {
+    .product-content {
+      padding: 1.2rem;
+      display: grid;
+      gap: 0.9rem;
+      height: 100%;
+    }
+
+    .product-content h3 {
+      margin: 0;
+      line-height: 1.25;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .price {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .spec-list {
+      display: grid;
+      gap: 0.5rem;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      color: var(--muted);
+    }
+
+    .spec-list li {
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .spec-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .action-row {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.8rem 1.05rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-weight: 700;
+      border: 2px solid transparent;
+      cursor: pointer;
+      flex: 1 1 180px;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: var(--accent-dark);
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: var(--accent-dark);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: #f7faf8;
+      border-color: #b9c8c0;
+    }
+
+    .shop-help {
       background: var(--surface-alt);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
 
-    .highlight {
-      border-left: 5px solid var(--accent);
-      padding-left: 1rem;
-      color: var(--muted);
+    .help-grid {
+      display: grid;
+      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     }
 
-    .cta {
-      background: linear-gradient(135deg, #2d6148, #3f7e5f);
-      color: #ffffff;
-      border-radius: 16px;
-      padding: 2rem;
-      display: grid;
-      gap: 1.25rem;
-      align-items: start;
-      grid-template-columns: 1.4fr 1fr;
+    .help-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem;
       box-shadow: var(--shadow);
     }
 
-    .cta p {
-      margin-bottom: 0;
-      color: #eaf7f0;
+    .status-box {
+      margin-top: 1rem;
+      min-height: 56px;
+      padding: 0.9rem 1rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--muted);
     }
 
-    .signup-form {
-      display: grid;
-      gap: 0.8rem;
-    }
-
-    .field {
-      display: grid;
-      gap: 0.35rem;
-    }
-
-    .field label {
-      font-weight: 700;
-      font-size: 0.95rem;
-    }
-
-    input,
-    select {
-      width: 100%;
-      min-height: 44px;
-      font: inherit;
-      border-radius: 8px;
-      border: 1px solid #c6d8cd;
-      padding: 0.7rem 0.8rem;
-      background: #ffffff;
-      color: var(--text);
-    }
-
-    input::placeholder {
-      color: #75837b;
-    }
-
-    .signup-form button {
-      min-height: 44px;
-      font: inherit;
-      border-radius: 8px;
-      padding: 0.8rem 1rem;
-      background: #ffffff;
-      color: var(--accent-dark);
-      font-weight: 700;
-      cursor: pointer;
-      border: none;
-    }
-
-    .signup-form button:hover,
-    .signup-form button:focus-visible {
-      background: #f3faf6;
-    }
-
-    .form-status {
-      min-height: 1.5rem;
-      margin: 0;
-      font-size: 0.95rem;
-      color: #f2fff7;
+    .status-box.is-active {
+      background: var(--success-bg);
+      border-color: var(--success-border);
+      color: var(--success-text);
     }
 
     footer {
@@ -368,32 +354,9 @@
       font-size: 0.95rem;
     }
 
-    @media (max-width: 900px) {
-      .cta {
-        grid-template-columns: 1fr;
-      }
-    }
-
     @media (max-width: 640px) {
-      header {
-        padding-bottom: 3rem;
-      }
-
-      .nav {
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        width: 100%;
-      }
-
-      .nav-links a {
-        padding-left: 0;
-      }
-
-      .button-row {
+      .action-row {
         flex-direction: column;
-        align-items: stretch;
       }
 
       .btn {
@@ -427,135 +390,191 @@
       <nav class="nav" aria-label="Primary navigation">
         <a class="logo" href="index.html" aria-label="PeakTerrain home">PeakTerrain</a>
         <div class="nav-links">
-          <a href="index.html" aria-current="page">Home</a>
-          <a href="products.html">Products</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
+          <a href="index.html">Home</a>
+          <a href="products.html" aria-current="page">Products</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#contact">Contact</a>
         </div>
       </nav>
 
-      <section class="hero" aria-labelledby="hero-title">
+      <section class="hero" aria-labelledby="shop-title">
         <div>
-          <h1 id="hero-title">Elevate your desk with landscapes you can hold.</h1>
+          <h1 id="shop-title">Shop terrain-inspired pieces without a full backend.</h1>
           <p>
-            PeakTerrain creates premium terrain puzzles and topography-inspired products designed for gifts,
-            display pieces, and everyday discovery.
+            This page is built for GitHub Pages. Customers can browse products here and pay through secure checkout links from Stripe, PayPal, Etsy, or Shopify.
           </p>
-          <div class="button-row">
-            <a class="btn btn-primary" href="products.html">Browse Products</a>
-            <a class="btn btn-secondary" href="#about">Learn More</a>
-          </div>
         </div>
 
-        <aside class="hero-card" aria-label="Featured product summary">
-          <h2>Now Featured</h2>
-          <p><strong>Monterrey Puzzle:</strong> 14 × 18 cm, 9 × 7 puzzle layout, and includes a display stand.</p>
-          <p><strong>Terrain Phone Stand:</strong> Clean product photo styling and a matching product detail format.</p>
-        </aside>
+        <div class="notice">
+          <strong>Setup note:</strong> Replace each placeholder checkout link with your real payment link before publishing.
+        </div>
       </section>
     </div>
   </header>
 
   <main id="main-content">
-    <section id="about" class="container" aria-labelledby="about-title">
-      <h2 id="about-title" class="section-heading">About PeakTerrain</h2>
+    <section class="container" aria-labelledby="products-title">
+      <h2 id="products-title">Featured Products</h2>
       <p class="intro">
-        We blend craftsmanship and cartography. Every puzzle and product starts with real terrain data,
-        then gets transformed into something tactile, clean, and display-worthy.
+        This is the easiest way to sell from a static website: show the product beautifully, then send buyers to a secure hosted checkout page.
       </p>
 
-      <div class="grid">
-        <article class="card">
-          <h3>Precision Mapping</h3>
-          <p>Contours and landforms are based on real topographic information for a grounded, place-based feel.</p>
+      <div class="products-grid">
+        <article class="card" id="monterrey">
+          <div class="product-media">
+            <img
+              src="assets/monterrey-polished-white-bg.png"
+              alt="Monterrey terrain puzzle on a white background"
+              loading="lazy"
+              width="1200"
+              height="900"
+            />
+          </div>
+
+          <div class="product-content">
+            <div class="price-row">
+              <h3>Monterrey, Mexico Puzzle</h3>
+              <span class="badge">Best Seller</span>
+            </div>
+
+            <p>
+              A raised terrain puzzle designed as a display piece, gift, and conversation starter.
+            </p>
+
+            <div class="price-row">
+              <span class="price">$24.99</span>
+              <span class="badge">Ready to ship</span>
+            </div>
+
+            <ul class="spec-list" aria-label="Monterrey puzzle details">
+              <li>Approx. size: 14 × 18 cm</li>
+              <li>9 × 7 puzzle layout</li>
+              <li>Includes display stand</li>
+              <li>Clean topographic relief styling</li>
+            </ul>
+
+            <div class="action-row">
+              <a
+                class="btn btn-primary checkout-link"
+                href="https://buy.stripe.com/your-link-here"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-product="Monterrey, Mexico Puzzle"
+              >Buy Now</a>
+              <a class="btn btn-secondary" href="mailto:hello@peakterrain.com?subject=Question%20about%20Monterrey%20Puzzle">Ask a Question</a>
+            </div>
+          </div>
         </article>
 
-        <article class="card">
-          <h3>Display Ready</h3>
-          <p>Products are styled to look sharp on desks, shelves, gift tables, and storefront pages.</p>
+        <article class="card" id="phone-stand">
+          <div class="product-media">
+            <img
+              src="assets/phone-stand-data-photo.png"
+              alt="Terrain phone stand product photo on a white background"
+              loading="lazy"
+              width="1200"
+              height="900"
+            />
+          </div>
+
+          <div class="product-content">
+            <div class="price-row">
+              <h3>Terrain Phone Stand</h3>
+              <span class="badge">Desk Favorite</span>
+            </div>
+
+            <p>
+              A clean, practical phone stand with terrain styling built into the design.
+            </p>
+
+            <div class="price-row">
+              <span class="price">$19.99</span>
+              <span class="badge">Small batch</span>
+            </div>
+
+            <ul class="spec-list" aria-label="Terrain phone stand details">
+              <li>Approx. front gap: 1.3 cm</li>
+              <li>Minimal display-friendly look</li>
+              <li>Great for desks and gifts</li>
+              <li>Matches the PeakTerrain product style</li>
+            </ul>
+
+            <div class="action-row">
+              <a
+                class="btn btn-primary checkout-link"
+                href="https://www.paypal.com/checkoutnow?token=your-link-here"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-product="Terrain Phone Stand"
+              >Buy Now</a>
+              <a class="btn btn-secondary" href="mailto:hello@peakterrain.com?subject=Question%20about%20Terrain%20Phone%20Stand">Ask a Question</a>
+            </div>
+          </div>
         </article>
 
-        <article class="card">
-          <h3>Custom Potential</h3>
-          <p>Locations, terrain styles, and labels can be adapted into personalized products and gifts.</p>
+        <article class="card" id="custom">
+          <div class="product-media">
+            <img
+              src="assets/custom-terrain-placeholder.png"
+              alt="Placeholder image for custom terrain commissions"
+              loading="lazy"
+              width="1200"
+              height="900"
+            />
+          </div>
+
+          <div class="product-content">
+            <div class="price-row">
+              <h3>Custom Terrain Commission</h3>
+              <span class="badge">Made for you</span>
+            </div>
+
+            <p>
+              Turn a favorite place into a one-off terrain piece for a gift, memory, or display.
+            </p>
+
+            <div class="price-row">
+              <span class="price">From $39.99</span>
+              <span class="badge">By request</span>
+            </div>
+
+            <ul class="spec-list" aria-label="Custom terrain commission details">
+              <li>Choose a location and style</li>
+              <li>Ideal for gifts or personal keepsakes</li>
+              <li>Use email or custom order form</li>
+              <li>Flexible format options</li>
+            </ul>
+
+            <div class="action-row">
+              <a class="btn btn-primary" href="mailto:hello@peakterrain.com?subject=Custom%20Terrain%20Commission">Request Custom Order</a>
+              <a class="btn btn-secondary" href="index.html#contact">Join for Updates</a>
+            </div>
+          </div>
         </article>
       </div>
+
+      <div id="checkout-status" class="status-box" role="status" aria-live="polite"></div>
     </section>
 
-    <section class="products-preview" aria-labelledby="featured-products-title">
+    <section class="shop-help" aria-labelledby="how-it-works-title">
       <div class="container">
-        <h2 id="featured-products-title" class="section-heading">Featured Products</h2>
-        <p class="intro">
-          The full product details now live on a separate products page, so the site feels cleaner and easier to browse.
-        </p>
-
-        <div class="grid">
-          <article class="card" id="monterrey">
-            <figure class="feature-media">
-              <img
-                src="assets/monterrey-polished-white-bg.png"
-                alt="Monterrey terrain puzzle on a white background"
-                loading="lazy"
-                width="1200"
-                height="900"
-              />
-            </figure>
-            <h3>Monterrey, Mexico Puzzle</h3>
-            <p>Raised terrain relief with a clean two-tone look, sized at 14 × 18 cm.</p>
-            <p class="highlight">9 × 7 puzzle layout and includes a stand.</p>
-            <a class="btn btn-primary" href="products.html#monterrey">View Details</a>
+        <h2 id="how-it-works-title">How this works on GitHub Pages</h2>
+        <div class="help-grid">
+          <article class="help-card">
+            <h3>1. Show products here</h3>
+            <p>Your GitHub Pages site displays product photos, pricing, and details like a storefront.</p>
           </article>
 
-          <article class="card" id="phone-stand">
-            <figure class="feature-media">
-              <img
-                src="assets/phone-stand-data-photo.png"
-                alt="Terrain phone stand product photo on a white background"
-                loading="lazy"
-                width="1200"
-                height="900"
-              />
-            </figure>
-            <h3>Terrain Phone Stand</h3>
-            <p>Minimal product photo presentation with the same detail structure used for the puzzle.</p>
-            <p class="highlight">Consistent product detail layout for a cleaner storefront.</p>
-            <a class="btn btn-primary" href="products.html#phone-stand">View Details</a>
+          <article class="help-card">
+            <h3>2. Send buyers to checkout</h3>
+            <p>Each Buy Now button opens a secure hosted checkout page from Stripe, PayPal, Etsy, or Shopify.</p>
+          </article>
+
+          <article class="help-card">
+            <h3>3. Get paid securely</h3>
+            <p>The payment platform handles cards, receipts, and security, so your static site stays simple and safe.</p>
           </article>
         </div>
-      </div>
-    </section>
-
-    <section id="contact" class="container" aria-labelledby="contact-title">
-      <div class="cta">
-        <div>
-          <h2 id="contact-title">Get launch offers from PeakTerrain</h2>
-          <p>Sign up for restock alerts, limited map drops, and future product releases.</p>
-        </div>
-
-        <form class="signup-form" id="signup-form" novalidate>
-          <div class="field">
-            <label for="name">Your name</label>
-            <input id="name" type="text" name="name" placeholder="Your name" autocomplete="name" required />
-          </div>
-
-          <div class="field">
-            <label for="email">Your email</label>
-            <input id="email" type="email" name="email" placeholder="Your email" autocomplete="email" required />
-          </div>
-
-          <div class="field">
-            <label for="interest">I'm interested in</label>
-            <select id="interest" name="interest" required>
-              <option value="">Select an option</option>
-              <option value="Terrain Puzzles">Terrain Puzzles</option>
-              <option value="Phone Stands">Phone Stands</option>
-              <option value="Custom Products">Custom Products</option>
-            </select>
-          </div>
-
-          <button type="submit">Join the List</button>
-          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-        </form>
       </div>
     </section>
   </main>
@@ -567,43 +586,32 @@
   <script>
     (function () {
       const yearEl = document.getElementById('current-year');
-      const form = document.getElementById('signup-form');
-      const status = document.getElementById('form-status');
-      const emailInput = document.getElementById('email');
+      const statusEl = document.getElementById('checkout-status');
+      const checkoutLinks = document.querySelectorAll('.checkout-link');
 
       if (yearEl) {
         yearEl.textContent = new Date().getFullYear();
       }
 
-      if (!form || !status || !emailInput) {
+      if (!statusEl || checkoutLinks.length === 0) {
         return;
       }
 
-      function isValidEmail(value) {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+      function isPlaceholderLink(url) {
+        return url.includes('your-link-here');
       }
 
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
+      checkoutLinks.forEach(function (link) {
+        link.addEventListener('click', function (event) {
+          const href = link.getAttribute('href') || '';
+          const product = link.dataset.product || 'This product';
 
-        const formData = new FormData(form);
-        const name = String(formData.get('name') || '').trim();
-        const email = String(formData.get('email') || '').trim();
-        const interest = String(formData.get('interest') || '').trim();
-
-        if (!name || !email || !interest) {
-          status.textContent = 'Please complete all fields before submitting.';
-          return;
-        }
-
-        if (!isValidEmail(email)) {
-          status.textContent = 'Please enter a valid email address.';
-          emailInput.focus();
-          return;
-        }
-
-        status.textContent = 'Thanks! Your interest has been recorded.';
-        form.reset();
+          if (isPlaceholderLink(href)) {
+            event.preventDefault();
+            statusEl.classList.add('is-active');
+            statusEl.textContent = product + ' is still using a placeholder checkout link. Replace it with your real Stripe or PayPal checkout URL before publishing.';
+          }
+        });
       });
     })();
   </script>
