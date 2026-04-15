@@ -1,1 +1,524 @@
-j
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Browse PeakTerrain products including terrain puzzles and topography-inspired desk pieces."
+  />
+  <title>PeakTerrain | Products</title>
+
+  <style>
+    :root {
+      --bg: #f5f7f4;
+      --bg-soft: #eef3ef;
+      --surface: #ffffff;
+      --surface-alt: #f0f5f2;
+      --accent: #2f6b4f;
+      --accent-dark: #1d4633;
+      --accent-light: #dff0e7;
+      --text: #1f2a24;
+      --muted: #5a6a61;
+      --border: #d7e1da;
+      --shadow: 0 10px 24px rgba(20, 39, 28, 0.08);
+      --radius: 14px;
+      --radius-sm: 10px;
+      --max-width: 1120px;
+      --transition: 180ms ease;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 35%, #f9fbf8 100%);
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a,
+    button {
+      transition:
+        background-color var(--transition),
+        color var(--transition),
+        border-color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid rgba(223, 240, 231, 0.95);
+      outline-offset: 3px;
+    }
+
+    .container {
+      width: min(var(--max-width), 92%);
+      margin: 0 auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -3rem;
+      background: #ffffff;
+      color: var(--accent-dark);
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-weight: 700;
+      z-index: 1000;
+    }
+
+    .skip-link:focus {
+      top: 1rem;
+    }
+
+    header {
+      background: radial-gradient(circle at top right, #5d8f74, var(--accent-dark));
+      color: #ffffff;
+      padding: 1rem 0 4rem;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #f4fffa;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.45rem 0.7rem;
+      border-radius: 999px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible,
+    .nav-links a[aria-current="page"] {
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .hero {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      max-width: 620px;
+      margin: 0 0 1.5rem;
+      color: #e5f2eb;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      backdrop-filter: blur(6px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card h2 {
+      margin-top: 0;
+      color: #ffffff;
+    }
+
+    .hero-card p {
+      color: #f2fff7;
+      margin-bottom: 0;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.8rem 1.25rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-weight: 700;
+      border: 2px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: #ffffff;
+      color: var(--accent-dark);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: #f3faf6;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: var(--accent-light);
+      color: #f2fff7;
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    main {
+      display: block;
+    }
+
+    section {
+      padding: 3.5rem 0;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+      line-height: 1.2;
+    }
+
+    .section-heading {
+      margin-bottom: 0.9rem;
+    }
+
+    .intro {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 2rem;
+      color: var(--muted);
+    }
+
+    .product-list {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      display: grid;
+      grid-template-columns: minmax(280px, 460px) 1fr;
+      gap: 1.5rem;
+      align-items: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+    }
+
+    .product-media {
+      margin: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      box-shadow: var(--shadow);
+      aspect-ratio: 4 / 3;
+    }
+
+    .product-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: #f7faf8;
+    }
+
+    .product-copy h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .product-copy p {
+      color: var(--muted);
+    }
+
+    .meta {
+      display: grid;
+      gap: 0.65rem;
+      margin: 1rem 0 1.25rem;
+    }
+
+    .meta-item {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.8rem 0.9rem;
+    }
+
+    .meta-item strong {
+      display: block;
+      color: var(--accent-dark);
+      margin-bottom: 0.15rem;
+    }
+
+    .cta-panel {
+      background: linear-gradient(135deg, #2d6148, #3f7e5f);
+      color: #ffffff;
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-panel p {
+      margin: 0.5rem auto 1.25rem;
+      max-width: 700px;
+      color: #eaf7f0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.4rem 0 2rem;
+      color: #5f6d66;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .product-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding-bottom: 3rem;
+      }
+
+      .nav {
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        width: 100%;
+      }
+
+      .button-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .btn:hover {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header>
+    <div class="container">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="logo" href="index.html" aria-label="PeakTerrain home">PeakTerrain</a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="products.html" aria-current="page">Products</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+      </nav>
+
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <h1 id="hero-title">Products built from real terrain.</h1>
+          <p>
+            Browse topography-inspired puzzles and desk pieces made to feel clean,
+            tactile, and display-ready.
+          </p>
+          <div class="button-row">
+            <a class="btn btn-primary" href="#catalog">See Products</a>
+            <a class="btn btn-secondary" href="index.html">Back to Home</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Product page summary">
+          <h2>What you’ll find here</h2>
+          <p>
+            Clean product photos, simple details, and a layout that actually matches
+            the links on your homepage.
+          </p>
+        </aside>
+      </section>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section id="catalog" class="container" aria-labelledby="catalog-title">
+      <h2 id="catalog-title" class="section-heading">Product Catalog</h2>
+      <p class="intro">
+        A cleaner storefront page for browsing your featured terrain-based products.
+      </p>
+
+      <div class="product-list">
+        <article class="product-card" id="monterrey">
+          <figure class="product-media">
+            <img
+              src="assets/monterrey-polished-white-bg.png"
+              alt="Monterrey terrain puzzle on a white background"
+              loading="lazy"
+              width="1200"
+              height="900"
+            />
+          </figure>
+
+          <div class="product-copy">
+            <h3>Monterrey, Mexico Puzzle</h3>
+            <p>
+              A raised terrain relief puzzle with a clean, high-contrast presentation
+              designed for display as much as play.
+            </p>
+
+            <div class="meta">
+              <div class="meta-item">
+                <strong>Size</strong>
+                14 × 18 cm
+              </div>
+              <div class="meta-item">
+                <strong>Layout</strong>
+                9 × 7 puzzle format
+              </div>
+              <div class="meta-item">
+                <strong>Includes</strong>
+                Display stand
+              </div>
+            </div>
+
+            <a class="btn btn-primary" href="index.html#contact">Ask About Availability</a>
+          </div>
+        </article>
+
+        <article class="product-card" id="phone-stand">
+          <figure class="product-media">
+            <img
+              src="assets/phone-stand-data-photo.png"
+              alt="Terrain phone stand product photo on a white background"
+              loading="lazy"
+              width="1200"
+              height="900"
+            />
+          </figure>
+
+          <div class="product-copy">
+            <h3>Terrain Phone Stand</h3>
+            <p>
+              A terrain-inspired desk accessory with a minimal presentation that fits
+              the same clean visual style as the puzzle listing.
+            </p>
+
+            <div class="meta">
+              <div class="meta-item">
+                <strong>Style</strong>
+                Terrain-inspired desktop display piece
+              </div>
+              <div class="meta-item">
+                <strong>Presentation</strong>
+                White-background product photography
+              </div>
+              <div class="meta-item">
+                <strong>Fit</strong>
+                Consistent product detail layout across the site
+              </div>
+            </div>
+
+            <a class="btn btn-primary" href="index.html#contact">Request Details</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="container" aria-labelledby="custom-title">
+      <div class="cta-panel">
+        <h2 id="custom-title">Want custom terrain products?</h2>
+        <p>
+          You can use the homepage contact section for custom map requests, future drops,
+          and restock interest.
+        </p>
+        <a class="btn btn-primary" href="index.html#contact">Contact PeakTerrain</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="current-year">2026</span> PeakTerrain. Terrain-inspired products designed for everyday discovery.</p>
+  </footer>
+
+  <script>
+    (function () {
+      const yearEl = document.getElementById("current-year");
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
+    })();
+  </script>
+</body>
+</html>
