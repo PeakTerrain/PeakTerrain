@@ -98,12 +98,31 @@
       flex-wrap: wrap;
     }
 
-    .logo {
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 46px;
+      height: 46px;
+      object-fit: contain;
+      display: block;
+      flex-shrink: 0;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.2rem;
+    }
+
+    .brand-text {
       font-size: 1.5rem;
       font-weight: 700;
       letter-spacing: 0.4px;
       color: #ffffff;
-      text-decoration: none;
+      line-height: 1;
     }
 
     .nav-links {
@@ -399,6 +418,15 @@
       .btn {
         width: 100%;
       }
+
+      .brand-text {
+        font-size: 1.3rem;
+      }
+
+      .brand-logo {
+        width: 40px;
+        height: 40px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -425,7 +453,17 @@
   <header>
     <div class="container">
       <nav class="nav" aria-label="Primary navigation">
-        <a class="logo" href="index.html" aria-label="PeakTerrain home">PeakTerrain</a>
+        <a class="brand" href="index.html" aria-label="PeakTerrain home">
+          <img
+            class="brand-logo"
+            src="assets/peakterrain-logo.png"
+            alt="PeakTerrain logo"
+            width="46"
+            height="46"
+          />
+          <span class="brand-text">PeakTerrain</span>
+        </a>
+
         <div class="nav-links">
           <a href="index.html" aria-current="page">Home</a>
           <a href="products.html">Products</a>
@@ -450,7 +488,7 @@
         <aside class="hero-card" aria-label="Featured product summary">
           <h2>Now Featured</h2>
           <p><strong>Monterrey Puzzle:</strong> 14 × 18 cm, 9 × 7 puzzle layout, and includes a display stand.</p>
-          <p><strong>Terrain Phone Stand:</strong> Clean product photo styling and a matching product detail format.</p>
+          <p><strong>Cerro de la Silla Phone Stand:</strong> Functional terrain-inspired design with a clean product presentation.</p>
         </aside>
       </section>
     </div>
@@ -500,7 +538,7 @@
                 height="900"
               />
             </figure>
-            <h3>Monterrey, Mexico Puzzle</h3>
+            <h3>Monterrey Jigsaw Puzzle</h3>
             <p>Raised terrain relief with a clean two-tone look, sized at 14 × 18 cm.</p>
             <p class="highlight">9 × 7 puzzle layout and includes a stand.</p>
             <a class="btn btn-primary" href="products.html#monterrey">View Details</a>
@@ -510,16 +548,16 @@
             <figure class="feature-media">
               <img
                 src="assets/phone-stand-data-photo.png"
-                alt="Terrain phone stand product photo on a white background"
+                alt="Cerro de la Silla phone stand product photo on a white background"
                 loading="lazy"
                 width="1200"
                 height="900"
               />
             </figure>
-            <h3>Terrain Phone Stand</h3>
-            <p>Minimal product photo presentation with the same detail structure used for the puzzle.</p>
-            <p class="highlight">Consistent product detail layout for a cleaner storefront.</p>
-            <a class="btn btn-primary" href="products.html#phone-stand">View Details</a>
+            <h3>Cerro de la Silla Phone Stand</h3>
+            <p>A terrain-inspired phone stand with a clean product photo presentation.</p>
+            <p class="highlight">Minimal functional design for a cleaner storefront.</p>
+            <a class="btn btn-primary" href="products.html#cerro-de-la-silla">View Details</a>
           </article>
         </div>
       </div>
