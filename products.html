@@ -51,7 +51,8 @@
     }
 
     a,
-    button {
+    button,
+    summary {
       transition:
         background-color var(--transition),
         color var(--transition),
@@ -61,7 +62,8 @@
     }
 
     a:focus-visible,
-    button:focus-visible {
+    button:focus-visible,
+    summary:focus-visible {
       outline: 3px solid rgba(223, 240, 231, 0.95);
       outline-offset: 3px;
     }
@@ -102,12 +104,34 @@
       flex-wrap: wrap;
     }
 
-    .logo {
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .brand-text {
       font-size: 1.5rem;
       font-weight: 700;
       letter-spacing: 0.4px;
-      color: #ffffff;
-      text-decoration: none;
+    }
+
+    /* Replace this box later with your real logo image if you want */
+    .brand-logo-slot {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      display: grid;
+      place-items: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #f4fffa;
+      backdrop-filter: blur(6px);
+      flex-shrink: 0;
     }
 
     .nav-links {
@@ -240,31 +264,30 @@
       color: var(--muted);
     }
 
-    .product-list {
+    .product-grid {
       display: grid;
       gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 
     .product-card {
-      display: grid;
-      grid-template-columns: minmax(280px, 460px) 1fr;
-      gap: 1.5rem;
-      align-items: center;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 1.25rem;
+      overflow: hidden;
       box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
 
     .product-media {
-      margin: 0;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: #ffffff;
-      box-shadow: var(--shadow);
       aspect-ratio: 4 / 3;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
     }
 
     .product-media img {
@@ -274,34 +297,103 @@
       background: #f7faf8;
     }
 
-    .product-copy h3 {
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-      font-size: 1.5rem;
+    .product-placeholder {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 1.25rem;
+      background: linear-gradient(180deg, #f6fbf7, #ebf4ee);
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .product-content {
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      flex: 1;
+    }
+
+    .product-topline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .product-type {
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .price {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--accent-dark);
+    }
+
+    .product-content h3 {
+      margin: 0;
+      font-size: 1.45rem;
       line-height: 1.2;
     }
 
-    .product-copy p {
+    .product-content p {
+      margin: 0;
       color: var(--muted);
     }
 
-    .meta {
-      display: grid;
-      gap: 0.65rem;
-      margin: 1rem 0 1.25rem;
-    }
-
-    .meta-item {
-      background: var(--surface-alt);
+    .product-details {
+      margin-top: auto;
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 0.8rem 0.9rem;
+      background: var(--surface-alt);
+      overflow: hidden;
     }
 
-    .meta-item strong {
+    .product-details summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 0.9rem 1rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+      user-select: none;
+    }
+
+    .product-details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .product-details[open] summary {
+      border-bottom: 1px solid var(--border);
+      background: #e8f2eb;
+    }
+
+    .details-body {
+      padding: 1rem;
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .detail-item {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.85rem 0.9rem;
+    }
+
+    .detail-item strong {
       display: block;
       color: var(--accent-dark);
-      margin-bottom: 0.15rem;
+      margin-bottom: 0.2rem;
     }
 
     .cta-panel {
@@ -326,12 +418,6 @@
       font-size: 0.95rem;
     }
 
-    @media (max-width: 900px) {
-      .product-card {
-        grid-template-columns: 1fr;
-      }
-    }
-
     @media (max-width: 640px) {
       header {
         padding-bottom: 3rem;
@@ -352,6 +438,10 @@
 
       .btn {
         width: 100%;
+      }
+
+      .brand-text {
+        font-size: 1.3rem;
       }
     }
 
@@ -379,7 +469,11 @@
   <header>
     <div class="container">
       <nav class="nav" aria-label="Primary navigation">
-        <a class="logo" href="index.html" aria-label="PeakTerrain home">PeakTerrain</a>
+        <a class="brand" href="index.html" aria-label="PeakTerrain home">
+          <div class="brand-logo-slot">Logo</div>
+          <span class="brand-text">PeakTerrain</span>
+        </a>
+
         <div class="nav-links">
           <a href="index.html">Home</a>
           <a href="products.html" aria-current="page">Products</a>
@@ -390,10 +484,10 @@
 
       <section class="hero" aria-labelledby="hero-title">
         <div>
-          <h1 id="hero-title">Products built from real terrain.</h1>
+          <h1 id="hero-title">Terrain products made to be displayed, gifted, and used.</h1>
           <p>
-            Browse topography-inspired puzzles and desk pieces made to feel clean,
-            tactile, and display-ready.
+            Explore PeakTerrain pieces inspired by real landscapes, from relief puzzles
+            to functional desk products.
           </p>
           <div class="button-row">
             <a class="btn btn-primary" href="#catalog">See Products</a>
@@ -402,10 +496,10 @@
         </div>
 
         <aside class="hero-card" aria-label="Product page summary">
-          <h2>What you’ll find here</h2>
+          <h2>Now showing 4 products</h2>
           <p>
-            Clean product photos, simple details, and a layout that actually matches
-            the links on your homepage.
+            Each product includes a price, a short description, and a See more section
+            you can edit later.
           </p>
         </aside>
       </section>
@@ -416,81 +510,175 @@
     <section id="catalog" class="container" aria-labelledby="catalog-title">
       <h2 id="catalog-title" class="section-heading">Product Catalog</h2>
       <p class="intro">
-        A cleaner storefront page for browsing your featured terrain-based products.
+        Click See more on any product to open extra details you can change anytime later.
       </p>
 
-      <div class="product-list">
+      <div class="product-grid">
         <article class="product-card" id="monterrey">
           <figure class="product-media">
             <img
               src="assets/monterrey-polished-white-bg.png"
-              alt="Monterrey terrain puzzle on a white background"
+              alt="Monterrey jigsaw puzzle on a white background"
               loading="lazy"
               width="1200"
               height="900"
             />
           </figure>
 
-          <div class="product-copy">
-            <h3>Monterrey, Mexico Puzzle</h3>
-            <p>
-              A raised terrain relief puzzle with a clean, high-contrast presentation
-              designed for display as much as play.
-            </p>
-
-            <div class="meta">
-              <div class="meta-item">
-                <strong>Size</strong>
-                14 × 18 cm
-              </div>
-              <div class="meta-item">
-                <strong>Layout</strong>
-                9 × 7 puzzle format
-              </div>
-              <div class="meta-item">
-                <strong>Includes</strong>
-                Display stand
-              </div>
+          <div class="product-content">
+            <div class="product-topline">
+              <span class="product-type">Jigsaw Puzzle</span>
+              <span class="price">$799 MXN</span>
             </div>
 
-            <a class="btn btn-primary" href="index.html#contact">Ask About Availability</a>
+            <h3>Monterrey Jigsaw Puzzle</h3>
+            <p>
+              A detailed terrain puzzle made from the landscape of Monterrey with a clean,
+              display-ready look.
+            </p>
+
+            <details class="product-details">
+              <summary>See more</summary>
+              <div class="details-body">
+                <div class="detail-item">
+                  <strong>Length</strong>
+                  14 × 18 cm
+                </div>
+                <div class="detail-item">
+                  <strong>Pieces</strong>
+                  9 × 7 puzzle layout
+                </div>
+                <div class="detail-item">
+                  <strong>More detail</strong>
+                  Edit this later: A terrain-based puzzle designed to highlight Monterrey’s
+                  shape and relief while still looking great on a desk or shelf.
+                </div>
+              </div>
+            </details>
           </div>
         </article>
 
-        <article class="product-card" id="phone-stand">
+        <article class="product-card" id="cerro-de-la-silla">
           <figure class="product-media">
             <img
               src="assets/phone-stand-data-photo.png"
-              alt="Terrain phone stand product photo on a white background"
+              alt="Cerro de la Silla phone stand on a white background"
               loading="lazy"
               width="1200"
               height="900"
             />
           </figure>
 
-          <div class="product-copy">
-            <h3>Terrain Phone Stand</h3>
-            <p>
-              A terrain-inspired desk accessory with a minimal presentation that fits
-              the same clean visual style as the puzzle listing.
-            </p>
-
-            <div class="meta">
-              <div class="meta-item">
-                <strong>Style</strong>
-                Terrain-inspired desktop display piece
-              </div>
-              <div class="meta-item">
-                <strong>Presentation</strong>
-                White-background product photography
-              </div>
-              <div class="meta-item">
-                <strong>Fit</strong>
-                Consistent product detail layout across the site
-              </div>
+          <div class="product-content">
+            <div class="product-topline">
+              <span class="product-type">Phone Stand</span>
+              <span class="price">$149 MXN</span>
             </div>
 
-            <a class="btn btn-primary" href="index.html#contact">Request Details</a>
+            <h3>Cerro de la Silla Phone Stand</h3>
+            <p>
+              A compact desk phone stand inspired by Cerro de la Silla, blending function
+              with landscape form.
+            </p>
+
+            <details class="product-details">
+              <summary>See more</summary>
+              <div class="details-body">
+                <div class="detail-item">
+                  <strong>Length</strong>
+                  Edit this later: Add the stand length here
+                </div>
+                <div class="detail-item">
+                  <strong>Gap</strong>
+                  1.3 cm
+                </div>
+                <div class="detail-item">
+                  <strong>More detail</strong>
+                  Edit this later: A minimal phone stand shaped around terrain-inspired
+                  lines for everyday desk use.
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article class="product-card" id="pico-de-orizaba">
+          <figure class="product-media">
+            <div class="product-placeholder">
+              Add Pico de Orizaba image later
+            </div>
+          </figure>
+
+          <div class="product-content">
+            <div class="product-topline">
+              <span class="product-type">Terrain Puzzle</span>
+              <span class="price">$199 MXN</span>
+            </div>
+
+            <h3>Pico de Orizaba</h3>
+            <p>
+              A terrain-focused piece inspired by Mexico’s highest mountain, with room for
+              you to customize the exact product details later.
+            </p>
+
+            <details class="product-details">
+              <summary>See more</summary>
+              <div class="details-body">
+                <div class="detail-item">
+                  <strong>Length</strong>
+                  Edit this later: Add the product length here
+                </div>
+                <div class="detail-item">
+                  <strong>Pieces</strong>
+                  Edit this later: Add the number of pieces here
+                </div>
+                <div class="detail-item">
+                  <strong>More detail</strong>
+                  Edit this later: Write a more detailed sentence about the product,
+                  material, terrain style, or why it is special.
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article class="product-card" id="popocatepetl">
+          <figure class="product-media">
+            <div class="product-placeholder">
+              Add Popocatépetl image later
+            </div>
+          </figure>
+
+          <div class="product-content">
+            <div class="product-topline">
+              <span class="product-type">Terrain Puzzle</span>
+              <span class="price">$199 MXN</span>
+            </div>
+
+            <h3>Popocatépetl</h3>
+            <p>
+              A terrain-inspired product concept centered on one of Mexico’s most iconic
+              volcanoes, ready for you to refine later.
+            </p>
+
+            <details class="product-details">
+              <summary>See more</summary>
+              <div class="details-body">
+                <div class="detail-item">
+                  <strong>Length</strong>
+                  Edit this later: Add the product length here
+                </div>
+                <div class="detail-item">
+                  <strong>Pieces</strong>
+                  Edit this later: Add the number of pieces here
+                </div>
+                <div class="detail-item">
+                  <strong>More detail</strong>
+                  Edit this later: Write a more detailed sentence about this product,
+                  its look, and its terrain inspiration.
+                </div>
+              </div>
+            </details>
           </div>
         </article>
       </div>
@@ -498,10 +686,10 @@
 
     <section class="container" aria-labelledby="custom-title">
       <div class="cta-panel">
-        <h2 id="custom-title">Want custom terrain products?</h2>
+        <h2 id="custom-title">Want a custom terrain product?</h2>
         <p>
-          You can use the homepage contact section for custom map requests, future drops,
-          and restock interest.
+          Use the contact section on the homepage for custom requests, new map ideas,
+          and future product drops.
         </p>
         <a class="btn btn-primary" href="index.html#contact">Contact PeakTerrain</a>
       </div>
