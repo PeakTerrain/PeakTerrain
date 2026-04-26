@@ -502,7 +502,7 @@
         </div>
 
         <aside class="hero-card" aria-label="Product page summary">
-          <h2>Now showing 4 products</h2>
+          <h2>Now showing 5 products</h2>
           <p>
             Each product includes a price, a short description, and a See more section
             you can edit later.
@@ -655,6 +655,50 @@
         <article class="product-card" id="popocatepetl">
           <figure class="product-media">
             <img
+              src="assets/popocatepetl.png"
+              alt="Popocatépetl terrain model on a white background"
+              loading="lazy"
+              width="1200"
+              height="900"
+            />
+          </figure>
+
+          <div class="product-content">
+            <div class="product-topline">
+              <span class="product-type">Terrain Puzzle</span>
+              <span class="price">$199 MXN</span>
+            </div>
+
+            <h3>Popocatépetl</h3>
+            <p>
+              A terrain-inspired product concept centered on one of Mexico’s most iconic
+              volcanoes, ready for you to refine later.
+            </p>
+
+            <details class="product-details">
+              <summary>See more</summary>
+              <div class="details-body">
+                <div class="detail-item">
+                  <strong>Length</strong>
+                  10.9cm x 10.9cm
+                </div>
+                <div class="detail-item">
+                  <strong>Gap</strong>
+                  1.3cm
+                </div>
+                <div class="detail-item">
+                  <strong>More detail</strong>
+                  A minimal phone stand shaped around terrain-inspired
+                  lines for everyday desk use.
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article class="product-card" id="popocatepetl-jigsaw-puzzle">
+          <figure class="product-media">
+            <img
               src="assets/popocatepetl-jigsaw-puzzle.png"
               alt="Popocatépetl jigsaw puzzle on a white background"
               loading="lazy"
@@ -717,6 +761,7 @@
   <script>
     (function () {
       const yearEl = document.getElementById("current-year");
+
       if (yearEl) {
         yearEl.textContent = new Date().getFullYear();
       }
