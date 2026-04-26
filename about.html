@@ -1,1 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Learn how PeakTerrain products are made, see a product timelapse, and find where to buy our terrain-inspired designs."
+  />
+  <title>PeakTerrain | About</title>
 
+  <style>
+    :root {
+      --bg: #f5f7f4;
+      --bg-soft: #eef3ef;
+      --surface: #ffffff;
+      --surface-alt: #f0f5f2;
+      --accent: #2f6b4f;
+      --accent-dark: #1d4633;
+      --accent-light: #dff0e7;
+      --text: #1f2a24;
+      --muted: #5a6a61;
+      --border: #d7e1da;
+      --shadow: 0 10px 24px rgba(20, 39, 28, 0.08);
+      --radius: 14px;
+      --radius-sm: 10px;
+      --max-width: 1120px;
+      --transition: 180ms ease;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 35%, #f9fbf8 100%);
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+    }
+
+    img,
+    video {
+      display: block;
+      max-width: 100%;
+    }
+
+    a,
+    button {
+      transition:
+        background-color var(--transition),
+        color var(--transition),
+        border-color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid rgba(223, 240, 231, 0.95);
+      outline-offset: 3px;
+    }
+
+    .container {
+      width: min(var(--max-width), 92%);
+      margin: 0 auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -3rem;
+      background: #ffffff;
+      color: var(--accent-dark);
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-weight: 700;
+      z-index: 1000;
+    }
+
+    .skip-link:focus {
+      top: 1rem;
+    }
+
+    header {
+      background: radial-gradient(circle at top right, #5d8f74, var(--accent-dark));
+      color: #ffffff;
+      padding: 1rem 0 4rem;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 46px;
+      height: 46px;
+      object-fit: contain;
+      display: block;
+      flex-shrink: 0;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.2rem;
+    }
+
+    .brand-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #f4fffa;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.45rem 0.7rem;
+      border-radius: 999px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible,
+    .nav-links a[aria-current="page"] {
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .hero {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      max-width: 620px;
+      margin: 0 0 1.5rem;
+      color: #e5f2eb;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      backdrop-filter: blur(6px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card h2 {
+      margin-top: 0;
+      color: #ffffff;
+    }
+
+    .hero-card p {
+      color: #f2fff7;
+      margin-bottom: 0.8rem;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.8rem 1.25rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-weight: 700;
+      border: 2px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: #ffffff;
+      color: var(--accent-dark);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: #f3faf6;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: var(--accent-light);
+      color: #f2fff7;
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    main {
+      display: block;
+    }
+
+    section {
+      padding: 3.5rem 0;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+      line-height: 1.2;
+    }
+
+    .section-heading {
+      margin-bottom: 0.9rem;
+    }
+
+    .intro {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 2rem;
+      color: var(--muted);
+    }
+
+    .split {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      align-items: center;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.3rem;
+      box-shadow: var(--shadow);
+      height: 100%;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 0.65rem;
+      line-height: 1.25;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .media-frame {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .media-frame video,
+    .media-frame img {
+      width: 100%;
+      height: auto;
+      background: #edf4ef;
+    }
+
+    .media-caption {
+      padding: 0.9rem 1rem 1rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      background: var(--surface);
+    }
+
+    .process-grid {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .step-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .step-number {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      display: inline-grid;
+      place-items: center;
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      font-weight: 800;
+      margin-bottom: 0.8rem;
+    }
+
+    .step-card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .step-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .sales-section {
+      background: var(--surface-alt);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sales-grid {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .sales-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .sales-card:hover,
+    .sales-card:focus-visible {
+      transform: translateY(-4px);
+      border-color: #c5d7cc;
+      box-shadow: 0 14px 28px rgba(20, 39, 28, 0.12);
+    }
+
+    .sales-icon-wrap {
+      width: 82px;
+      height: 82px;
+      margin: 0 auto 1rem;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, #f8fbf9, #edf4ef);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .sales-icon {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+    }
+
+    .sales-card h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1.15rem;
+    }
+
+    .sales-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .cta-panel {
+      background: linear-gradient(135deg, #2d6148, #3f7e5f);
+      color: #ffffff;
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-panel p {
+      margin: 0.5rem auto 1.25rem;
+      max-width: 700px;
+      color: #eaf7f0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.4rem 0 2rem;
+      color: #5f6d66;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding-bottom: 3rem;
+      }
+
+      .nav {
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        width: 100%;
+      }
+
+      .button-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .brand-text {
+        font-size: 1.3rem;
+      }
+
+      .brand-logo {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .btn:hover,
+      .sales-card:hover {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header>
+    <div class="container">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="index.html" aria-label="PeakTerrain home">
+          <img
+            class="brand-logo"
+            src="assets/peakterrain-logo.png"
+            alt="PeakTerrain logo"
+            width="46"
+            height="46"
+          />
+          <span class="brand-text">PeakTerrain</span>
+        </a>
+
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="about.html" aria-current="page">About</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+      </nav>
+
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <h1 id="hero-title">How PeakTerrain products are made and where you can buy them.</h1>
+          <p>
+            Every PeakTerrain piece starts with terrain inspiration, then gets turned into a clean,
+            physical object using careful design work and reliable 3D printing.
+          </p>
+          <div class="button-row">
+            <a class="btn btn-primary" href="#process">How We Make Them</a>
+            <a class="btn btn-secondary" href="#where-to-buy">Where We Sell</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="About page summary">
+          <h2>Inside the process</h2>
+          <p><strong>Printer:</strong> Bambu P2S</p>
+          <p><strong>Example:</strong> Product timelapse section included below.</p>
+          <p><strong>Sales channels:</strong> Website, Facebook Marketplace, and Mercado Pago.</p>
+        </aside>
+      </section>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section id="process" class="container" aria-labelledby="process-title">
+      <h2 id="process-title" class="section-heading">How We Make Our Products</h2>
+      <p class="intro">
+        PeakTerrain products begin as terrain-based ideas, then move through design, preparation,
+        and 3D printing before becoming display-ready pieces.
+      </p>
+
+      <div class="split">
+        <article class="card">
+          <h3>Printed with the Bambu P2S</h3>
+          <p>
+            We make our products using the <strong>Bambu P2S</strong>, which helps us create clean,
+            detailed prints with reliable layer quality and consistent results.
+          </p>
+          <p>
+            This lets us produce terrain-inspired designs with sharp contours, smooth top surfaces,
+            and a polished presentation that works well for gifts, desks, and display shelves.
+          </p>
+          <p>
+            Each design is prepared carefully so the final product looks strong, clean, and ready to use.
+          </p>
+        </article>
+
+        <div class="media-frame">
+          <img
+            src="assets/monterrey-polished-white-bg.png"
+            alt="Example PeakTerrain product on a clean background"
+            width="1200"
+            height="900"
+          />
+          <div class="media-caption">
+            Example finished PeakTerrain product with a clean display-ready presentation.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" aria-labelledby="steps-title">
+      <h2 id="steps-title" class="section-heading">Our Product Workflow</h2>
+      <p class="intro">
+        From terrain inspiration to finished print, here is the basic flow behind a PeakTerrain product.
+      </p>
+
+      <div class="process-grid">
+        <article class="step-card">
+          <div class="step-number">1</div>
+          <h3>Design</h3>
+          <p>
+            We create the model based on terrain-inspired forms and shape it into a product that looks good and works well.
+          </p>
+        </article>
+
+        <article class="step-card">
+          <div class="step-number">2</div>
+          <h3>Prepare</h3>
+          <p>
+            The file is adjusted for print quality, size, and clean presentation before production begins.
+          </p>
+        </article>
+
+        <article class="step-card">
+          <div class="step-number">3</div>
+          <h3>Print</h3>
+          <p>
+            The Bambu P2S prints the product layer by layer, turning the design into a real physical piece.
+          </p>
+        </article>
+
+        <article class="step-card">
+          <div class="step-number">4</div>
+          <h3>Finish</h3>
+          <p>
+            The final print is checked, cleaned up, and prepared for photos, display, or customer orders.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="container" aria-labelledby="timelapse-title">
+      <h2 id="timelapse-title" class="section-heading">Example Timelapse</h2>
+      <p class="intro">
+        This section can show a real timelapse of one of your products being made.
+      </p>
+
+      <div class="media-frame">
+        <video controls preload="metadata" poster="assets/timelapse-poster.jpg">
+          <source src="assets/timelapse.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="media-caption">
+          Replace <strong>assets/timelapse.mp4</strong> with your real product timelapse video.
+        </div>
+      </div>
+    </section>
+
+    <section id="where-to-buy" class="sales-section" aria-labelledby="sales-title">
+      <div class="container">
+        <h2 id="sales-title" class="section-heading">Where We Sell</h2>
+        <p class="intro">
+          You can find PeakTerrain products on our website and on the platforms below.
+          Click an icon to visit that selling channel.
+        </p>
+
+        <div class="sales-grid">
+          <a
+            class="sales-card"
+            href="products.html"
+            aria-label="Visit the PeakTerrain website shop"
+          >
+            <div class="sales-icon-wrap">
+              <img
+                class="sales-icon"
+                src="assets/website-icon.png"
+                alt="Website icon"
+                width="54"
+                height="54"
+              />
+            </div>
+            <h3>Website</h3>
+            <p>Browse products directly here on PeakTerrain.</p>
+          </a>
+
+          <a
+            class="sales-card"
+            href="https://www.facebook.com/marketplace/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit PeakTerrain on Facebook Marketplace"
+          >
+            <div class="sales-icon-wrap">
+              <img
+                class="sales-icon"
+                src="assets/facebook-marketplace-icon.png"
+                alt="Facebook Marketplace icon"
+                width="54"
+                height="54"
+              />
+            </div>
+            <h3>Facebook Marketplace</h3>
+            <p>Find listings and product availability through Facebook Marketplace.</p>
+          </a>
+
+          <a
+            class="sales-card"
+            href="https://www.mercadopago.com.mx/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit Mercado Pago"
+          >
+            <div class="sales-icon-wrap">
+              <img
+                class="sales-icon"
+                src="assets/mercado-pago-icon.png"
+                alt="Mercado Pago icon"
+                width="54"
+                height="54"
+              />
+            </div>
+            <h3>Mercado Pago</h3>
+            <p>Use Mercado Pago for payment and checkout options.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" aria-labelledby="custom-title">
+      <div class="cta-panel">
+        <h2 id="custom-title">Want to see the products?</h2>
+        <p>
+          Head over to the products page to browse the current collection and see terrain-inspired designs in more detail.
+        </p>
+        <a class="btn btn-primary" href="products.html">View Products</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="current-year">2026</span> PeakTerrain. Terrain-inspired products designed for everyday discovery.</p>
+  </footer>
+
+  <script>
+    (function () {
+      const yearEl = document.getElementById("current-year");
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
+    })();
+  </script>
+</body>
+</html>
